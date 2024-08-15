@@ -5,6 +5,7 @@ import "./index.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -15,16 +16,16 @@ import Roadmap from "./components/Roadmap/Roadmap.jsx";
 import Api from "./components/Api/Api.jsx";
 import Price from "./components/Price/Price.jsx";
 import Models from "./components/Models/Models.jsx";
+import Navbar from "./components/Navbar/Navbar.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="Features" element={<Features />} />
+    <Route path="/" element={<Outlet />}>
+      <Route path="" index element={<Layout />} />
+      <Route path="Features" element={<Navbar />} />
       <Route path="How it works" element={<Howitworks />} />
       <Route path="Roadmap" element={<Roadmap />} />
-      <Route path="API" element={<Api />} />
       <Route path="Price" element={<Price />} />
-      <Route path="Models" element={<Models />} />
     </Route>
   )
 );
